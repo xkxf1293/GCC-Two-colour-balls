@@ -29,12 +29,12 @@ void getRandom( int * p )
   /* set a seed for rand */
   srand( (unsigned)time( NULL ) );
   int deter = 0;
-  while (deter = 0)
+  while (deter == 0)
   {
     deter = 1;
     for (int i=0; i<6; i++)
     {
-      if (deter =0)
+      if (deter == 0)
       {
         break;
       }
@@ -43,7 +43,7 @@ void getRandom( int * p )
       /* Compared with the preceding red ball */    
       for (int j=0; j<i; j++)  
       {
-        if (*(p+j) = *(p+i))
+        if (*(p+j) == *(p+i))
         {
           deter = 0;
           break;
