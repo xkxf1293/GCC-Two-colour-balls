@@ -9,73 +9,90 @@ int ball[3][7] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
 /* sort the red ball */
 void sortredball( int * p)
 {
-      int temp=0, m=0, n=0;
-      for (m = 0; m<6; m++)                                 
-      {
-        for (n = m + 1; n<6; n++)
-        {
-          if (*(p+m) > *(p+n)) 
-          {
-            temp = *(p+m);
-            *(p+m) = *(p+n);
-            *(p+n) = temp;
-          }
-        }
-      }
+	int temp=0, m=0, n=0;
+	for (m = 0; m<6; m++)                                 
+	{
+		for (n = m + 1; n<6; n++)
+		{
+			if (*(p+m) > *(p+n)) 
+			{
+				temp = *(p+m);
+				*(p+m) = *(p+n);
+				*(p+n) = temp;
+			}
+		}
+	}
 }
 
 void getRandom( int * p )
 {
-  int deter = 0, i=0, j=0;
-  /* change the seed */
-  static int days = 0;
-  /* set a seed for rand */
-  srand( (unsigned)time( NULL )+ days*3600*24*2 );
-  /* printf("%d\n", (unsigned)time( NULL )+ days*3600*24*2); */
-  days++;
-  while (deter == 0)
-  {
-    deter = 1;
-    for (i=0; i<6; i++)
-    {
-      if (deter == 0)
-      {
-        break;
-      }
-      /* creat red ball */
-      *(p+i) = rand()%(34-1)+1;
-      /* Compared with the preceding red ball */    
-      for (j=0; j<i; j++)  
-      {
-        if (*(p+j) == *(p+i))
-        {
-          deter = 0;
-          break;
-        }      
-      }
-     
-    }
-    /* creat blue ball */
-    *(p+6) = rand()%(17-1)+1;
-  }
+	int deter = 0, i=0, j=0;
+	/* change the seed */
+	static int days = 0;
+	/* set a seed for rand */
+	srand( (unsigned)time( NULL )+ days*3600*24*2 );
+	/* printf("%d\n", (unsigned)time( NULL )+ days*3600*24*2); */
+	days++;
+	while (deter == 0)
+	{
+		deter = 1;
+		for (i=0; i<6; i++)
+		{
+			if (deter == 0)
+			{
+				break;
+			}
+			/* creat red ball */
+			*(p+i) = rand()%(34-1)+1;
+			/* Compared with the preceding red ball */    
+			for (j=0; j<i; j++)  
+			{
+				if (*(p+j) == *(p+i))
+				{
+					deter = 0;
+					break;
+				}      
+			}
+		}
+		/* creat blue ball */
+		*(p+6) = rand()%(17-1)+1;
+	}
+	sortredball( p );
 }
 
 void printout( int * p )
 {
 	int i=0;
-    for (i=0; i<7; i++)
-    {
-      printf("%d\t", *(p+i));
-    }
-    printf("\n");
+	for (i=0; i<7; i++)
+	{
+		printf("%d\t", *(p+i));
+	}
+	printf("\n");
 }
 
+void oldball(int *p)
+{
+	
+}
+
+int compared( int * p0 , int * p1 )
+{
+	int i=0;
+	int same=1;
+	for (i=0; i<7; i++) 
+	{
+		if (*(p0+i) != *(p1+i))
+		{
+			same = 0;
+		}
+	}
+	return same;
+}
 
 int main( )
 {
-  getRandom( &ball[1][0] );
-  printout( &ball[1][0] );
-  sortredball( &ball[1][0]);
-  printout( &ball[1][0] );
-  return 0;
+	getRandom( &ball[1][0] );
+	printout( &ball[1][0] );
+
+	return 0;
 }
