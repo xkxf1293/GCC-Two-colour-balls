@@ -70,7 +70,7 @@ int main( )
 {
   getRandom( &ball[1][0] );
   printout( &ball[1][0] );
-  sortredball( &ball[1][0])
+  sortredball( &ball[1][0]);
   printout( &ball[1][0] );
   return 0;
 }
