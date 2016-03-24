@@ -26,9 +26,13 @@ void sortredball( int * p)
 
 void getRandom( int * p )
 {
-  /* set a seed for rand */
-  srand( (unsigned)time( NULL ) );
   int deter = 0, i=0, j=0;
+  /* change the seed */
+  static int days = 0;
+  /* set a seed for rand */
+  srand( (unsigned)time( NULL )+ days*3600*24*2 );
+  /* printf("%d\n", (unsigned)time( NULL )+ days*3600*24*2); */
+  days++;
   while (deter == 0)
   {
     deter = 1;
