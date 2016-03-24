@@ -1,0 +1,76 @@
+#include <stdio.h>
+#include <float.h>
+#include <ctime> 
+#include <stdlib.h>
+#include <math.h>
+
+int ball[3][7] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+
+/* sort the red ball */
+void sortredball( int * p)
+{
+      int temp=0;
+      for (int m = 0; m<6; m++)                                 
+      {
+        for (int n = m + 1; n<6; n++)
+        {
+          if (*(p+m) > *(p+n)) 
+          {
+            temp = *(p+m);
+            *(p+m) = *(p+n);
+            *(p+n) = temp;
+          }
+        }
+      }
+}
+
+void getRandom( int * p )
+{
+  /* set a seed for rand */
+  srand( (unsigned)time( NULL ) );
+  int deter = 0;
+  while (deter = 0)
+  {
+    deter = 1;
+    for (int i=0; i<6; i++)
+    {
+      if (deter =0)
+      {
+        break;
+      }
+      /* creat red ball */
+      *(p+i) = rand()%(34-1)+1;
+      /* Compared with the preceding red ball */    
+      for (int j=0; j<i; j++)  
+      {
+        if (*(p+j) = *(p+i))
+        {
+          deter = 0;
+          break;
+        }      
+      }
+     
+    }
+    /* creat blue ball */
+    *(p+6) = rand()%(17-1)+1;
+  }
+}
+
+void printout( int * p )
+{
+    for (int i=0; i<7; i++)
+    {
+      printf("%d\t", *(p+i));
+    }
+    printf("\n");
+}
+
+
+int main( )
+{
+  getRandom( &ball[1][0] );
+  printout( &ball[1][0] );
+  sortredball( &ball[1][0])
+  printout( &ball[1][0] );
+  return 0;
+}
