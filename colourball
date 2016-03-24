@@ -72,7 +72,9 @@ void printout( int * p )
 
 void oldball(int *p)
 {
-	
+	printf( "Enter 6 red balls and 1 blue ball, use comma separated: \n");
+	scanf("%d, %d, %d, %d, %d, %d, %d",(p+0),(p+1),(p+2),(p+3),(p+4),(p+5),(p+6));
+	printf("%d, %d, %d, %d, %d, %d, %d\n",*(p+0),*(p+1),*(p+2),*(p+3),*(p+4),*(p+5),*(p+6));
 }
 
 int compared( int * p0 , int * p1 )
@@ -91,6 +93,7 @@ int compared( int * p0 , int * p1 )
 
 int main( )
 {
+	oldball(&ball[0][0]);
 	getRandom( &ball[1][0] );
 	printout( &ball[1][0] );
 
