@@ -97,19 +97,18 @@ int compared( int * p0 , int * p1 )
 
 int main( )
 {
-	int calculations = 0;
+	int i = 0;
 	oldball(&ball[0][0]);
-	do
+	for (i=0; i<200000000; i++) 
 	{
-		calculations++;
-		if(calculations>40000000)
+		if(!compared( &ball[0][0] , &ball[1][0] ))
 		{
 			break;
 		}
 		getRandom( &ball[1][0] );
 		getRandom( &ball[2][0] );
-	}while(compared( &ball[0][0] , &ball[1][0]));
-	printf("The calculations is: %d\n", calculations);
+	}
+	printf("The calculations is: %d\n", i);
 	printf("The ball[1][*] is: \n");
 	printout( &ball[1][0] );
 	printf("The ball[2][*] is: \n");
