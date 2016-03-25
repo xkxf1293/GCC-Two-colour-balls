@@ -102,7 +102,7 @@ int main( )
 	do
 	{
 		calculations++;
-		if(calculations>200000000)
+		if(calculations>40000000)
 		{
 			break;
 		}
