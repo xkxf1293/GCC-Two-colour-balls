@@ -4,7 +4,8 @@
 #include <stdlib.h>
 #include <math.h>
 
-int ball[3][7] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+int ball[7][7] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0, \
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
 
 /* sort the red ball */
 void sortredball( int * p)
@@ -129,7 +130,7 @@ int main( )
 		{
 			break;
 		}
-		for (j=1; j<6; j++)
+		for (j=1; j<7; j++)
 		{
 			getRandom( &ball[j][0] );
 		}
@@ -139,7 +140,7 @@ int main( )
 	/* show the time-consuming */
 	printf("The time-consuming is: %d seconds\n", ftime - stime);
 	printf("The calculations is: %d\n", i);
-	for (j=1; j<6; j++)
+	for (j=1; j<7; j++)
 	{
 		printf("The ball[j][*] is: \n");
 		printout( &ball[j][0] );
