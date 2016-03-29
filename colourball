@@ -142,7 +142,7 @@ int main( )
 	printf("The calculations is: %d\n", i);
 	for (j=1; j<7; j++)
 	{
-		printf("The ball[j][*] is: \n");
+		printf("The ball[%d][*] is: \n", j);
 		printout( &ball[j][0] );
 	}
 	return 0;
