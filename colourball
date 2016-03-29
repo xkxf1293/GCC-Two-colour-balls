@@ -119,7 +119,7 @@ int compared( int * p0 , int * p1 )
 
 int main( )
 {
-	int i = 0, stime=0, ftime=0;
+	int i=0, j=0, stime=0, ftime=0;
 	oldball(&ball[0][0]);
 	/* Recording start time */
 	stime = (unsigned)time( NULL );
@@ -129,17 +129,20 @@ int main( )
 		{
 			break;
 		}
-		getRandom( &ball[1][0] );
-		getRandom( &ball[2][0] );
+		for (j=1; j<6; j++)
+		{
+			getRandom( &ball[j][0] );
+		}
 	}
 	/* Recording finish time */
 	ftime = (unsigned)time( NULL );
 	/* show the time-consuming */
 	printf("The time-consuming is: %d seconds\n", ftime - stime);
 	printf("The calculations is: %d\n", i);
-	printf("The ball[1][*] is: \n");
-	printout( &ball[1][0] );
-	printf("The ball[2][*] is: \n");
-	printout( &ball[2][0] );
+	for (j=1; j<6; j++)
+	{
+		printf("The ball[j][*] is: \n");
+		printout( &ball[j][0] );
+	}
 	return 0;
 }
