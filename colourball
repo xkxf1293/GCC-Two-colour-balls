@@ -125,12 +125,12 @@ int main( )
 	stime = (unsigned)time( NULL );
 	for (i=0; i<200000000; i++) 
 	{
+		getRandom( &ball[1][0] );
+		getRandom( &ball[2][0] );
 		if(!compared( &ball[0][0] , &ball[1][0] ))
 		{
 			break;
 		}
-		getRandom( &ball[1][0] );
-		getRandom( &ball[2][0] );
 	}
 	/* Recording finish time */
 	ftime = (unsigned)time( NULL );
