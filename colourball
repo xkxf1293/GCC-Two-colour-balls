@@ -126,13 +126,13 @@ int main( )
 	stime = (unsigned)time( NULL );
 	for (i=0; i<200000000; i++) 
 	{
-		if(!compared( &ball[0][0] , &ball[1][0] ))
-		{
-			break;
-		}
 		for (j=1; j<7; j++)
 		{
 			getRandom( &ball[j][0] );
+		}
+		if(!compared( &ball[0][0] , &ball[1][0] ))
+		{
+			break;
 		}
 	}
 	/* Recording finish time */
